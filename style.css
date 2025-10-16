@@ -30,7 +30,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-image: url("https://cdn.glitch.global/83eba652-1502-4a22-8def-dcd5c7c84364/bg_1.jpg");
+  background-image: url("./assets/images/bg_1.jpg");
 }
 
 body::after {
@@ -155,7 +155,7 @@ body::after {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-image: url("https://cdn.glitch.global/83eba652-1502-4a22-8def-dcd5c7c84364/bg_1.jpg");
+  background-image: url("./assets/images/bg_1.jpg");
 }
 
 .lose::after {
@@ -270,7 +270,7 @@ body::after {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-image: url("https://cdn.glitch.global/83eba652-1502-4a22-8def-dcd5c7c84364/bg_1.jpg");
+  background-image: url("./assets/images/bg_1.jpg");
 }
 
 .choose-gift::after {
