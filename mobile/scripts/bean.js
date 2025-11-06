@@ -244,8 +244,8 @@ class Bean {
     let s = Math.random() * 20 + 80;
     let l = Math.random() * 20 + 40;
     let color = `hsl(${h}deg ${s}% ${l}%)`
-    this.elem.style.boxShadow = "0 0 16px " + color;
-    bean.elem.style.boxShadow = "0 0 16px " + color;
+    this.elem.style.boxShadow = "0 0 32px " + color;
+    bean.elem.style.boxShadow = "0 0 32px " + color;
   }
   update(dt) {}
   click() {
