@@ -739,23 +739,7 @@ const normalWeights = [
   [SlideBean, 10]
 ];
 
-const hardWeights = [
-  [NormalBean, 60],
-  [MovingBean, 8],
-  [Giant, 5],
-  [OrthoMovingBean, 8],
-  [MovingDangerousBean, 15],
-  [BulletBean, 4],
-  [HealingBean, 1],
-  [FreezeBean, 1],
-  [DoubleBean, 1],
-  [LuckyBean, 0.75],
-  [GoldBean, 0.75],
-  [SilverBean, 0.75],
-  [TaroBean, 0.5],
-  [BlackBean, 2],
-  [BronzeBean, 0]
-];
+const hardWeights = normalWeights;
 
 let normalBeans = [
   [NormalBean, MovingBean, OrthoMovingBean],
