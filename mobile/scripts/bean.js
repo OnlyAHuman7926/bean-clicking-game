@@ -268,12 +268,12 @@ class Bean {
 }
 class NormalBean extends Bean {
   constructor(x, y) {
-    super(x, y, 10, 1, 1, beanURLs.GREEN_1);
+    super(x, y, 10, 1, 50, beanURLs.GREEN_1);
   }
 }
 class SlideBean extends Bean {
   constructor(x, y) {
-    super(x, y, 10, 1, 1, beanURLs.RED_1);
+    super(x, y, 10, 1, 50, beanURLs.RED_1);
     this.elem.addEventListener("pointermove", e => {
       if (this.held && (!this.entangled || this.entangled.held)) super.click();    // Check if held?
     })
@@ -284,7 +284,7 @@ class SlideBean extends Bean {
 }
 class MovingBean extends Bean {
   constructor(x, y, speed = MovingBean.movingBeanSpeed) {
-    super(x, y, 10, 1, 2, beanURLs.YELLOW_1);
+    super(x, y, 10, 1, 75, beanURLs.YELLOW_1);
     let angle = Math.random() * Math.PI * 2;
     this.velX = Math.cos(angle) * speed;
     this.velY = Math.sin(angle) * speed;
