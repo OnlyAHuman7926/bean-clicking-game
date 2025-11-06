@@ -745,9 +745,6 @@ const hardWeights = normalWeights;
 function newBean() {
   if (gameStart) {
     let weights = hardMode ? hardWeights : normalWeights;
-    for (let i = 0; i < weights.length; i++) {
-      if (goodBeans[0].includes(weights[i][0])) weights[i][1] *= luckyMultiplier;
-    }
     if (bossMode) weights = [[WhiteBean, 1]];
     
     let total = 0;
