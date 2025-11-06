@@ -22,6 +22,7 @@ class DangerousThing {
   // Dangerous things rotate clockwise
   constructor(direction = Math.random() * 360, x = Math.random() * width, y = Math.random() * height, damage, elemConstructor) {
     this.damage = damage;
+    this.health = damage;
     this.x = x;
     this.y = y;
     this.direction = direction;
@@ -72,6 +73,7 @@ class DangerousThing {
   }
   update(dt) {
     this.checkOutOfScreen();
+    if (this.health <= 0) this.destroy();
   }
 }
 class Bullet extends DangerousThing {
@@ -84,7 +86,6 @@ class Bullet extends DangerousThing {
     this.velY = this.constructor.speed * Math.sin((direction * Math.PI) / 180);
     this.radius = 20;
     this.t = 0;
-    this.goldTime = 5000;
     
     if (sound) playAudio(audios.SHOOT);
   }
@@ -92,9 +93,7 @@ class Bullet extends DangerousThing {
   update(dt) {
     this.t += dt * inGold(this.x, this.y);
     entityMove.apply(this, [dt, false]);
-    this.checkOutOfScreen();
-    if (this.goldTime - this.t <= 250 && this.elem) this.elem.style.animation = "fade 0.25s ease-in-out forwards";  
-    if (this.t >= this.goldTime) this.destroy();
+    super.update();
   }
   static bomb(d, x, y, n) {
     for (let i = 0; i < n; i++) new this((d + 360 / n * i) % 360, x, y, false);
@@ -121,6 +120,7 @@ class MovingDangerousBean extends DangerousThing {
   }
   // @Override
   update(dt) {
+    super.update();
     this.bulletTime -= dt * freezeMultiplier;
     if (this.bulletTime <= 0) {
       this.bulletTime = this.special ? 50 : 4000;
@@ -191,6 +191,7 @@ class Grenade extends DangerousThing {
     this.t = 0;
     this.maxT = t;
     this.r = r;
+    this.health = 100;
     // this.radius is for gold bean detection and this.r is the explosion radius.
     
     let circle = document.createElement("div");
@@ -227,6 +228,8 @@ class Grenade extends DangerousThing {
     else this.elem.style.background = "radial-gradient(white, red)";
     
     if (this.t >= this.maxT) this.explode();
+
+    super.update();
   }
   click() {
     // Override, no super

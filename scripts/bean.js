@@ -158,7 +158,10 @@ function handleGlassCollision(bean, block) {
 function entityMove(dt, bounce, bounceHandler = () => {}) {
   // Bind this to the function to use
   let goldMultiplier = 2 ** -inGold(this.x, this.y);
-  if (this instanceof DangerousThing) goldMultiplier **= (hardMode ? 4.2 : 4);
+  // if (this instanceof DangerousThing) goldMultiplier **= (hardMode ? 4.2 : 4);
+  if (this instanceof DangerousThing && inGold(this.x, this.y)) {
+    this.health--;
+  }
   this.x += (this.velX * dt / 1000) * freezeMultiplier * goldMultiplier;
   this.y += (this.velY * dt / 1000) * freezeMultiplier * goldMultiplier;
   if (bounce) {
