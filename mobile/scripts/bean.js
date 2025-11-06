@@ -770,8 +770,5 @@ function newBean() {
         break;
       }
     }
-    for (let i = 0; i < weights.length; i++) {
-      if (goodBeans[0].includes(weights[i][0])) weights[i][1] /= luckyMultiplier;
-    }
   }
 }
