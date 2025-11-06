@@ -240,13 +240,10 @@ class Bean {
     this.entangled = bean;
     bean.entangled = this;
 
-    let r = 0, g = 0, b = 0;
-    while (r + g + b < 255) {
-      r = Math.floor(Math.random() * 256);
-      g = Math.floor(Math.random() * 256);
-      b = Math.floor(Math.random() * 256);
-    }
-    let color = '#' + (r * 65536 + g * 256 + b).toString(16);
+    let h = Math.random() * 360;
+    let s = Math.random() * 20 + 80;
+    let l = Math.random() * 20 + 40;
+    let color = `hsl(${h}deg ${s}% ${l}%)`
     this.elem.style.boxShadow = "0 0 16px " + color;
     bean.elem.style.boxShadow = "0 0 16px " + color;
   }
