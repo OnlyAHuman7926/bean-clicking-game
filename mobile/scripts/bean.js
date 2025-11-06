@@ -245,10 +245,10 @@ class Bean {
 
     let h = Math.random() * 360;
     let s = Math.random() * 20 + 80;
-    let l = Math.random() * 20 + 40;
+    let l = Math.random() * 40 + 30;
     let color = `hsl(${h}deg ${s}% ${l}%)`
-    this.elem.style.boxShadow = "0 0 32px " + color;
-    bean.elem.style.boxShadow = "0 0 32px " + color;
+    this.elem.style.border = "6px solid " + color;
+    bean.elem.style.border = "6px solid " + color;
   }
   update(dt) {}
   click() {
