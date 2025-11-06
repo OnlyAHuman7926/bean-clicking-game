@@ -229,7 +229,10 @@ class Bean {
       // The LMB limit is removed. However, good luck trying to click entangled beans.
       if (!paused) {
         this.held = true;
-        if (!this.entangled || this.entangled.held) this.click();
+        if (!this.entangled || this.entangled.held) {
+          this.click();
+          if (this.entangled) this.entangled.click();
+        }
       }
     });
     this.elem.addEventListener("pointerup", e => {
