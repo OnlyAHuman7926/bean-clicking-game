@@ -215,7 +215,7 @@ class Bean {
     this.score = score;
     beanCount += bc;
     this.held = false;
-    this.entangle = null;
+    this.entangled = null;
 
     const elem = document.createElement("div");
     elem.style.backgroundImage = `url(${png})`;
@@ -229,16 +229,26 @@ class Bean {
       // The LMB limit is removed. However, good luck trying to click entangled beans.
       if (!paused) {
         this.held = true;
-        if (!this.entangle || this.entangle.held) this.click();
+        if (!this.entangled || this.entangled.held) this.click();
       }
     });
-    this.elem.addEventListener("pointerdown", e => {
+    this.elem.addEventListener("pointerup", e => {
       this.held = false;
     })
   }
   entangle(bean) {
-    this.entangle = bean;
-    bean.entangle = this;
+    this.entangled = bean;
+    bean.entangled = this;
+
+    let r = 0, g = 0, b = 0;
+    while (r + g + b < 255) {
+      r = Math.floor(Math.random() * 256);
+      g = Math.floor(Math.random() * 256);
+      b = Math.floor(Math.random() * 256);
+    }
+    let color = '#' + (r * 65536 + g * 256 + b).toString(16);
+    this.elem.style.boxShadow = "0 0 16px " + color;
+    bean.elem.style.boxShadow = "0 0 16px " + color;
   }
   update(dt) {}
   click() {
@@ -265,7 +275,7 @@ class SlideBean extends Bean {
   constructor(x, y) {
     super(x, y, 10, 1, 1, beanURLs.RED_1);
     this.elem.addEventListener("pointermove", e => {
-      super.click();    // Check if held?
+      if (this.held && (!this.entangled || this.entangled.held)) super.click();    // Check if held?
     })
   }
   click() {
@@ -754,16 +764,12 @@ function newBean() {
     for (let [bean, m] of weights) {
       n -= m;
       if (n < 0) {
-        /*let x = Math.random() * width,
-          y = Math.random() * height;
-        while (inGold(x, y)) {
-          x = Math.random() * width;
-          y = Math.random() * height;
-        }*/
-        if (bean == GoldBean && goldLocs.length >= maxGoldCount)
-          bean = NormalBean;
-        // new bean(x, y);
-        new bean();
+        let entangle = Math.random() < 0.05;
+        let a = new bean();
+        if (entangle) {
+          let b = new bean();
+          a.entangle(b);
+        }
         break;
       }
     }
