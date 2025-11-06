@@ -30,7 +30,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-image: url("./assets/images/bg_1.jpg");
+  background-image: url("../assets/images/bg_1.jpg");
 }
 
 body::after {
@@ -155,7 +155,7 @@ body::after {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-image: url("./assets/images/bg_1.jpg");
+  background-image: url("../assets/images/bg_1.jpg");
 }
 
 .lose::after {
@@ -270,7 +270,7 @@ body::after {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-image: url("./assets/images/bg_1.jpg");
+  background-image: url("../assets/images/bg_1.jpg");
 }
 
 .choose-gift::after {
