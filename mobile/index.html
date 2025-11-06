@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" style="touch-action:none">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-transform,no-siteapp,no-cache,no-store,must-revalidate,max-age=0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,viewport-fit=cover" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="format detection" content="telephone=no,email=no,adress=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <link rel="icon" href="https://cdn.glitch.global/83eba652-1502-4a22-8def-dcd5c7c84364/taro_bean_2.svg" />
+    <link rel="apple-touch-icon-precomposed" href="https://cdn.glitch.global/83eba652-1502-4a22-8def-dcd5c7c84364/taro_bean_2.svg" />
+    <link rel="apple-touch-startup-image" href="https://cdn.glitch.global/83eba652-1502-4a22-8def-dcd5c7c84364/taro_bean_2.svg" />
+    <title>Click the Beans</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="animations.css" />
+    <script src="scripts/assets.js" defer></script>
+    <script src="scripts/undrag.js"></script>
+    <script src="scripts/calculations.js"></script>
+    <script src="scripts/animation.js"></script>
+    <script src="scripts/effect.js" ></script>
+    <script src="scripts/dangerous-things.js" ></script>
+    <script src="scripts/bean.js" ></script>
+    <script src="scripts/boss.js" ></script>
+    <script src="scripts/script.js" defer></script>
+    <script>window.oncontextmenu = () => false;</script>
+  </head>
+  <body>
+    <audio id="bgm" loop src="./assets/sounds/theme_01.mp3"></audio>
+    <div class="top" id="top">
+      <div class="progress-wrapper">
+        <div class="progress" id="progress"></div>
+        <div class="progress-num" id="progress-num"></div>
+      </div>
+      <div>Score: <span id="score-disp">0</span></div>
+      <div>Highest Score: <span id="highest-score-disp">0</span></div>
+      <div id="effect-bar"></div>
+      <div id="framerate-disp"></div>
+      <div class="ctrl-bar" id="ctrl-bar" onclick="changeGameStatus()">
+        <svg class="status-icon inactive" width="16px" height="16px">
+          <polygon
+            points="0,0 13.86,8 0,16"
+            style="fill: #ffffff; stroke: #ffffff; stroke-width: 1"
+          />
+        </svg>
+        <svg class="status-icon" width="16px" height="16px">
+          <polygon
+            points="0,0 5,0 5,16 0,16"
+            style="fill: #ffffff; stroke: #ffffff; stroke-width: 1"
+          />
+          <polygon
+            points="11,0 16,0 16,16 11,16"
+            style="fill: #ffffff; stroke: #ffffff; stroke-width: 1"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="game-window-wrapper" id="game-window-wrapper">
+      <div class="game-window" id="game-window"></div>
+    </div>     
+    <div class="lose" id="lose">
+      <div class="lose-wrapper">
+        <div class="lose-text">
+          Congratulations! <br />
+          You have successfully lost!
+        </div>
+        <div class="lose-text">
+          Final score:&nbsp;<span id="final-score"></span><br><br>Highest score:&nbsp;<span id="highest-score"></span>
+        </div>
+        <div class="game-title"><div><img src="https://cdn.glitch.global/83eba652-1502-4a22-8def-dcd5c7c84364/taro_bean_2.svg">Click the Beans</div><div id="load-progress">V3.0.2</div></div>
+        <div class="mode-btn">
+          <btn id="start-normal">Normal Mode</btn>
+          <btn id="start-hard">Hard Mode</btn>
+          <btn id="start-boss">Boss Rush</btn>
+        </div>
+      </div>
+    </div>
+
+    <div class="choose-gift" id="gift-window">
+      <!-- This HTML was originally used in an About Us page. -->
+      <div class="gift-display">
+        <div class="gift-card">
+          <img
+            class="gift-icon"
+            src="https://cdn.glitch.global/3f91a446-12a3-477c-bcd8-b6a6b81bf31d/freeze.svg?v=1732195571525"
+          />
+          <div class="description">
+            <h2>Freeze</h2>
+            <p>Slows down everything by 0.5x for 10s</p>
+          </div>
+        </div>
+
+        <div class="gift-card">
+          <img
+            class="gift-icon"
+            src="https://cdn.glitch.global/3f91a446-12a3-477c-bcd8-b6a6b81bf31d/bomb.svg?v=1732411802123"
+          />
+          <div class="description">
+            <h2>Bomb</h2>
+            <p>Remove 10 beans</p>
+          </div>
+        </div>
+
+        <div class="gift-card">
+          <img
+            class="gift-icon"
+            src="https://cdn.glitch.global/3f91a446-12a3-477c-bcd8-b6a6b81bf31d/double.svg?v=1732195572816"
+          />
+          <div class="description">
+            <h2>2x Points</h2>
+            <p>Doubles the points you get for 8s</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
