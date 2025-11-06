@@ -741,29 +741,6 @@ const normalWeights = [
 
 const hardWeights = normalWeights;
 
-let normalBeans = [
-  [NormalBean, MovingBean, OrthoMovingBean],
-  [13, 3, 1]
-]
-let goodBeans = [
-  [HealingBean, FreezeBean, DoubleBean, ShieldBean, TaroBean],
-  [2, 2, 2, 2, 1, 1]
-]
-let metalBeans = [
-  [GoldBean, SilverBean, BronzeBean],
-  [1, 1, 1]
-]
-let badBeans = [
-  [MovingDangerousBean, BulletBean, BlackBean],
-  [10, 1, 1]
-]
-
-let newWeights = [
-  [normalBeans, goodBeans, metalBeans, badBeans],
-  [
-    logistic
-  ]
-]
 
 function newBean() {
   if (gameStart) {
