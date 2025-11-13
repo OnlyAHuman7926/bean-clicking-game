@@ -141,8 +141,8 @@ function start(hard) {
   bossMode = false;
   
   maxBeanCount = hardMode ? 450 : 500;
-  startBeanSpeed = 400 / 2;
-  minBeanSpeed = (hardMode ? 150 : 200) / 2;
+  startBeanSpeed = 400 / 1.14514;
+  minBeanSpeed = (hardMode ? 150 : 200) / 1.14514;
   Bullet.speed = hardMode ? 750 : 500;
   
   if (hard) scoreDisp.style.color = "red";
